@@ -15,6 +15,7 @@ class DenoisingDataset(Dataset):
         low_image = img_as_float(io.imread(self.low_images[idx]))
         high_image = img_as_float(io.imread(self.high_images[idx]))
         return low_image, high_image
-    def get_dataloader(low_dir, high_dir, batch_size=16, shuffle=True):
-        dataset = DenoisingDataset(low_dir, high_dir)
-        return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+def get_dataloader(low_dir, high_dir, batch_size=16, shuffle=True):
+    dataset = DenoisingDataset(low_dir, high_dir)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
